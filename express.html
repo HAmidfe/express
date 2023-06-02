@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Web Application</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    nav {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-right: 10px;
+    }
+    .content {
+      padding: 20px;
+    }
+    #working-hours {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+  <script>
+    function checkWorkingHours() {
+      var now = new Date();
+      var day = now.getDay();
+      var hour = now.getHours();
+      var isWorkingHours = day >= 1 && day <= 5 && hour >= 9 && hour <= 17;
+
+      if (!isWorkingHours) {
+        document.getElementById('working-hours').textContent = 'Sorry, the web application is only available during working hours (Monday to Friday, from 9 to 17).';
+        document.getElementById('content').style.display = 'none';
+      }
+    }
+  </script>
+</head>
+<body onload="checkWorkingHours()">
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="services.html">Our Services</a>
+    <a href="contact.html">Contact Us</a>
+  </nav>
+
+  <div class="content" id="content">
+    <h1>Welcome to our web application!</h1>
+    <p id="working-hours"></p>
+
+    <!-- Home page content -->
+    <h2>Home Page</h2>
+    <p>This is the home page content.</p>
+  </div>
+
+</body>
+</html>
